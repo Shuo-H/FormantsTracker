@@ -29,7 +29,7 @@ def plot_heatmap(data, title):
     fig, ax = plt.subplots()
 
     # Create the heatmap
-    heatmap = ax.imshow(data, cmap='hot', aspect='auto', origin='lower')
+    heatmap = ax.imshow(data, cmap='hot', aspect='auto')
 
     # Add colorbar
     cbar = plt.colorbar(heatmap)
