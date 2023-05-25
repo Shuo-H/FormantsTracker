@@ -37,7 +37,11 @@ def get_test_dataset(hp):
     
 class WavDataset(Dataset):
     def __init__(self,hp):
-        self.wavs=list(iter_find_files(hp.test_dir, "*.wav"))
+        # self.wavs=list(iter_find_files(hp.test_dir, "*.wav"))
+        if hp.test_path is not None:
+            self.wavs = [hp.test_path]
+        else:
+            self.wavs=list(iter_find_files(hp.test_dir, "*.wav"))
         self.test_dir= hp.test_dir
         self.hp = hp
     
