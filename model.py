@@ -136,7 +136,7 @@ class FormantTracker(nn.Module):
         # spect : num of test wav files x number of frames x num of frequencies(M) ex:[2, 479, 257]
        
         h = self.enc(spect) # num of test wav files x num of frequencies x num of frames ex: [2, 257, 479]
-        utils.plot_heatmap(h[0].cpu().numpy(), "latent_frequency")
+#         utils.plot_heatmap(h[0].cpu().numpy(), "latent_frequency")
         
         # DECODING
         # formant 1 heatmap
