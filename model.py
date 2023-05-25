@@ -141,15 +141,15 @@ class FormantTracker(nn.Module):
         # DECODING
         # formant 1 heatmap
         out1 = self.f1_conv(h) # num of test wav files x num of frequencies x num of frames ex: [2, 257, 479]
-        utils.plot_heatmap(out1[0].cpu().numpy(), "formant_1_heatmap")
+#         utils.plot_heatmap(out1[0].cpu().numpy(), "formant_1_heatmap")
         
         # formant 2 heatmap
         out2 = self.f2_conv(h-out1) # num of test wav files x num of frequencies x num of frames ex: [2, 257, 479]
-        utils.plot_heatmap(out2[0].cpu().numpy(), "formant_2_heatmap")
+#         utils.plot_heatmap(out2[0].cpu().numpy(), "formant_2_heatmap")
         
         # formant 3 heatmap
         out3 = self.f3_conv(h-out1-out2) # num of test wav files x num of frequencies x num of frames ex: [2, 257, 479]
-        utils.plot_heatmap(out3[0].cpu().numpy(), "formant_3_heatmap")
+#         utils.plot_heatmap(out3[0].cpu().numpy(), "formant_3_heatmap")
         
         out= torch.stack([out1,out2,out3],dim=1)
         out=out.transpose(2,3) # num of test wav files x num of formants x num of frames x num of frequencies ex: [2, 3, 479, 257]
